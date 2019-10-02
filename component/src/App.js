@@ -8,7 +8,8 @@ class App extends React.Component {
     super();
     this.state = {
       username: 'hillan1152',
-      userData: []
+      login: '',
+      followers: []
     }
   }
 
@@ -46,13 +47,11 @@ class App extends React.Component {
       <div className="App">
         <h2>Github Card</h2>
         <div className="userCards">
-          {/* {this.state.userData.map(user => (
-            <p>{user.login}</p>
-          ))}
-          {this.state.followers.map(user => (
-            <Cards key={user.id} followers={user.followers}/>
-          ))} */}
-          <Cards userData={this.fetchUser.login} />
+            <p>{this.state.username}</p>
+            {this.state.followers.map(user => (
+              <p>Followers: {user.length}</p>
+            ))}
+          
 
         </div>
         

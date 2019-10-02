@@ -6,13 +6,13 @@ const Cards = props => {
             <div className="userCard">
                 {/* <img src={props.userData.avatar_url} alt={props.userData.username}/> */}
                 <p>{props.login}</p>
-                {/* <p>{props.userData.bio}</p>
+                <p>{props.bio}</p>
             <div>
                 {props.userData.followers.map(follower => {
                     console.log(follower);
                     // <h3 key={follower.id}>Followers: {props.follower.login}</h3>
                 })}
-            </div> */}
+            </div>
 
             </div>
         )
