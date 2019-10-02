@@ -9,13 +9,15 @@ class App extends React.Component {
     this.state = {
       username: 'hillan1152',
       login: '',
-      followers: []
+      followers: [],
+      img: {}
     }
   }
 
   componentDidMount() {
     this.fetchUser();
     this.fetchFollowers();
+
   }
 
   fetchUser = e => {
@@ -24,7 +26,8 @@ class App extends React.Component {
       .then(res =>{
         console.log(res);
         this.setState({
-        username: res.data.login
+        username: res.data.login,
+        user: res.data
       })
     })
     .catch(err => console.log(err));
@@ -47,10 +50,10 @@ class App extends React.Component {
       <div className="App">
         <h2>Github Card</h2>
         <div className="userCards">
-            <p>{this.state.username}</p>
-            {this.state.followers.map(user => (
-              <p>Followers: {user.length}</p>
-            ))}
+            <img src={this.state.img.avatar_url} alt={this.state.login}/>
+            <h3>{this.state.username}</h3>
+            <p>Followers: {this.state.followers.length}</p>
+           
           
 
         </div>
