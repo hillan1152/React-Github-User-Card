@@ -37,7 +37,7 @@ class App extends React.Component {
     axios 
       .get(`https://api.github.com/users/${this.state.username}/followers`)
       .then(res => {
-        console.log(res);
+        console.log(res.data);
         this.setState({
           followers: res.data
         })
@@ -48,19 +48,19 @@ class App extends React.Component {
     render() {
     return (
       <div className="App">
+        {console.log(this.state.followers)}
         <h2>Github Card</h2>
         <div className="userCards">
             <img src={this.state.img.avatar_url} alt={this.state.login}/>
             <h3>{this.state.username}</h3>
             <p>Followers: {this.state.followers.length}</p>
-           
-          
-
         </div>
         
         
         
-        {/* <Cards/> */}
+        <Cards
+            followers={this.state.followers}
+          />
       </div>
     );
   }
